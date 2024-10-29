@@ -6,8 +6,15 @@ import { LoginComponent } from './components/login/login.component';
 import { accountIsConfirmedGuard } from './guards/account-is-confirmed.guard';
 import { confirmExitGuard } from './guards/confirm-exit.guard';
 import { ProfileNotificationSettingsComponent } from './components/profile-notification-settings/profile-notification-settings.component';
+import { userIsAdminGuard } from './guards/user-is-admin.guard';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 
 export const routes: Routes = [
+    {
+        path: "profile",
+        component: AdminProfileComponent,
+        canMatch: [userIsAdminGuard]
+    },
     {
         path: "profile",
         component: ProfileComponent,
