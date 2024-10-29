@@ -4,6 +4,8 @@ import { ProfileMyinformationComponent } from './components/profile-myinformatio
 import { isLoginGuard } from './guards/is-login.guard';
 import { LoginComponent } from './components/login/login.component';
 import { accountIsConfirmedGuard } from './guards/account-is-confirmed.guard';
+import { confirmExitGuard } from './guards/confirm-exit.guard';
+import { ProfileNotificationSettingsComponent } from './components/profile-notification-settings/profile-notification-settings.component';
 
 export const routes: Routes = [
     {
@@ -19,7 +21,12 @@ export const routes: Routes = [
             },
             {
                 path: "my-information",
-                component: ProfileMyinformationComponent
+                component: ProfileMyinformationComponent,
+                canDeactivate: [confirmExitGuard]
+            },
+            {
+                path: "notification-settings",
+                component: ProfileNotificationSettingsComponent
             }
         ]
     },
